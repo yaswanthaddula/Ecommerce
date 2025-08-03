@@ -1,0 +1,144 @@
+🔥 Firebase Setup Guide – E-Commerce Web App
+This guide explains how to set up Firebase Authentication, Firestore Database, and Firebase Hosting for your E-Commerce project.
+
+✅ Step 1: Create a Firebase Project
+Go to 👉 https://console.firebase.google.com
+
+Click “Add Project”
+
+Project Name: E-Commerce
+
+Disable Google Analytics (optional)
+
+Click Create Project
+
+✅ Step 2: Add a Web App
+Inside your Firebase project, click the Web (</>) icon
+
+App nickname: ecommerce-web
+
+Click Register App
+
+Copy the config snippet and paste it in:
+
+📄 public/scripts/firebase-config.js
+
+// firebase-config.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "your-app.firebaseapp.com",
+  projectId: "your-app",
+  storageBucket: "your-app.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+export const app = initializeApp(firebaseConfig);
+✅ Step 3: Enable Authentication
+Go to Build → Authentication
+
+Click Get Started
+
+Under Sign-in Method, enable:
+
+✅ Email/Password
+
+✅ Step 4: Enable Firestore Database
+Go to Build → Firestore Database
+
+Click Create Database
+
+Choose Start in test mode for development
+
+Select your preferred region (e.g., asia-south1)
+
+Click Enable
+
+✅ Step 5: Firestore Collections Structure
+🛒 Collection: orders
+Each document represents a single order placed by a user.
+
+Example structure:
+
+{
+  "email": "user@example.com",
+  "cart": [
+    {
+      "productId": "p001",
+      "title": "Red Shoes",
+      "price": 899,
+      "quantity": 2
+    },
+    {
+      "productId": "p002",
+      "title": "T-Shirt",
+      "price": 499,
+      "quantity": 1
+    }
+  ],
+  "address": "Hyderabad, India",
+  "paymentMethod": "UPI",
+  "total": 2297,
+  "timestamp": "2025-08-03T18:23:00Z"
+}
+✅ Step 6: Install Firebase CLI
+Make sure you have Node.js installed
+
+Install Firebase CLI:
+
+npm install -g firebase-tools
+✅ Step 7: Login to Firebase
+Login to Firebase CLI:
+
+firebase login
+✅ Step 8: Initialize Firebase in Your Project
+Go to your project folder:
+
+cd path/to/E-Commerce
+Then initialize Firebase:
+
+firebase init
+Select the following:
+✅ Hosting
+
+✅ Firestore
+
+✅ Authentication
+
+Set public directory as: public
+
+Configure as SPA? → Yes
+Overwrite index.html? → No
+
+📁 Final Project Structure
+E-Commerce/
+├── .firebaserc                 ✅ Firebase project ID
+├── firebase.json               ✅ Hosting config
+├── public/
+│   ├── index.html              🏠 Homepage
+│   ├── register.html           📝 User registration
+│   ├── login.html              🔐 Login page
+│   ├── home.html               🛍️ Product listings           
+│   ├── cart.html               🛒 Cart page
+│   ├── address.html            📍 Address input/payment page        
+│   ├── success.html            ✅ Order confirmation
+│   ├── css/
+│   └── scripts/
+├── README.md                   📘 Project explanation
+├── FIREBASE_SETUP.md           🔥 This guide
+
+
+🛠️ Commands to Run in CMD
+cd path/to/E-Commerce
+firebase login
+firebase init
+firebase deploy
+
+🌐 After Deployment
+Firebase will give you a URL like:
+
+✔ Hosting URL: https://ecommerce-yaswanth.web.app
+You can now access your live e-commerce website online.
+
