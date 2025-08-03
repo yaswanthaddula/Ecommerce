@@ -1,3 +1,66 @@
+✅ 5. cart.html – Shopping Cart Page
+🔥 Firebase Setup:
+✅ Firebase Auth (to get current user)
+❌ Firestore not needed (cart uses localStorage)
+
+📂 Path:
+/public/cart.html
+🔍 Purpose:
+Displays products added to the cart from home.html (stored in localStorage) and allows:
+
+✅ Quantity adjustments
+
+✅ Removing items
+
+✅ Viewing total
+
+✅ Proceeding to address.html
+
+📄 What This Page Should Have:
+🛒 Cart Items:
+Product name
+
+Quantity selector (or plus/minus)
+
+Price × quantity
+
+Remove ❌ button
+
+💰 Order Summary:
+Subtotal / Grand Total
+
+🔘 Buttons:
+Continue Shopping → home.html
+
+Proceed to Checkout → address.html
+
+🎨 Linked Files:
+✅ CSS:public/css/cart.css
+✅ JS:/public/scripts/cart.js
+
+
+<script type="module" src="scripts/firebase-config.js"></script>
+<script type="module" src="scripts/cart.js"></script>
+⚙️ JavaScript Behavior (cart.js):
+Read localStorage.getItem("cart")
+
+Loop through products and display
+
+Allow quantity increase/decrease
+
+Recalculate totals dynamically
+
+On "Proceed to Checkout", redirect to address.html
+
+💡 Developer Tips:
+Keep a fallback like:
+
+const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+Store cart updates back to localStorage
+
+If cart is empty, show: "Your cart is empty"
+
+💻 HTML Code 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,3 +88,4 @@
   <script src="./scripts/cart.js"></script>
 </body>
 </html>
+
