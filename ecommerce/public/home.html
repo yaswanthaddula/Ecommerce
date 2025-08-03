@@ -1,3 +1,82 @@
+✅ 4. home.html – Product Listing + My Orders + Logout
+🔥 Firebase Setup:
+✅ Uses:
+
+Firebase Authentication (to get logged-in user)
+
+Optional Firestore (if products are dynamic)
+
+📂 Path:
+/public/home.html
+🔍 Purpose:
+This is the main shopping page after login. It:
+
+👋 Greets the user by email
+
+🛍️ Shows available products (hardcoded or Firestore)
+
+➕ Allows users to Add to Cart
+
+📦 Shows My Orders (navigates to history.html)
+
+🚪 Handles Logout
+
+📄 What This Page Should Have:
+👤 Header Section:
+Welcome, user@example.com (dynamic via Firebase)
+
+🔘 My Orders → history.html
+
+🔘 Logout
+
+🛍️ Product Grid:
+Each product card should display:
+
+Product image
+
+Name
+
+Price
+
+➕ Add to Cart button
+
+🔘 Other Buttons:
+Go to Cart → cart.html
+
+🎨 Linked Files:
+✅ CSS File:
+
+public/css/home.css
+✅ JavaScript Files:
+
+<script type="module" src="scripts/firebase-config.js"></script>
+<script type="module" src="scripts/home.js"></script>
+⚙️ JavaScript Behavior (home.js):
+✅ On Page Load:
+Check if user is logged in using onAuthStateChanged()
+
+Display:
+
+Welcome, [user.email]
+➕ Add to Cart:
+On clicking Add to Cart, store product in localStorage["cart"]
+
+📦 My Orders:
+Clicking My Orders → redirect to history.html
+
+🚪 Logout:
+Clicking Logout → call signOut() and redirect to login.html
+
+💡 Developer Tips:
+Use grid or flexbox to align product cards
+
+Add animations when products are added to cart
+
+If no user found, redirect to login.html
+
+Format: Welcome, <strong>user@example.com</strong>
+
+💻 HTML Code
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,4 +236,5 @@
     });
   </script>
 </body>
+
 </html>
