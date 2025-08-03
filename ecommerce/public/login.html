@@ -1,3 +1,44 @@
+✅ 3. login.html – Login Page
+🔥 Firebase Setup:
+✅ Uses Firebase Authentication
+
+📂 Path:
+
+/public/login.html
+🔍 Purpose:
+Let users log in to their account and redirect to home.
+
+📄 What This Page Should Have:
+
+📧 Email input
+
+🔒 Password input
+
+🔘 Login button
+
+🔗 New here? Register
+
+🎨 Linked Files:
+✅ CSS: public/css/login.css
+✅ JS:
+
+<script type="module" src="scripts/firebase-config.js"></script>  
+<script type="module" src="scripts/auth.js"></script>  
+⚙️ Script Behavior (auth.js):
+
+On submit → call signInWithEmailAndPassword()
+
+On success → redirect to home.html
+
+Auth state persistence
+
+💡 Developer Tips:
+
+Show toast message on login failure
+
+Use loading spinner on button
+
+💻 HTML Code 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,4 +107,5 @@
     };
   </script>
 </body>
+
 </html>
