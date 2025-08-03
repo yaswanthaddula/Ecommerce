@@ -1,3 +1,125 @@
+✅ 6. address.html – Address + Payment + Place Order Page (Combined)
+🔥 Firebase Setup:
+✅ Uses:
+
+Firebase Authentication → to get the user’s email
+
+Firebase Firestore → to save the order under orders collection
+
+📂 Path:
+/public/address.html
+🔍 Purpose:
+This single page handles the entire checkout process, including:
+
+📦 Shipping address form
+
+💳 Payment method selection
+
+🛒 Displays cart summary
+
+✅ "Place Order" → saves order in Firestore and redirects to success.html
+
+📄 What This Page Should Have:
+🏠 Address Section:
+Full Name
+
+Mobile Number
+
+House No / Street / Landmark
+
+City
+
+State
+
+Pincode
+
+💳 Payment Method:
+Radio buttons:
+
+UPI
+
+Net Banking
+
+Cash on Delivery (COD)
+
+🧾 Cart Summary (Side Panel or Bottom):
+List of products from localStorage
+
+Total amount
+
+🔘 Button:
+proceed with payment then go to payment options then confirm order.
+
+🎨 Linked Files:
+✅ CSS:
+public/css/address.css
+✅ JS:
+public/css/address.js
+<script type="module" src="scripts/firebase-config.js"></script>
+<script type="module" src="scripts/address.js"></script>
+⚙️ JavaScript Behavior (address.js):
+✅ On Page Load:
+
+Fetches cart from localStorage
+
+Displays products and total
+
+✅ On Place Order:
+
+Gets:
+
+Address fields
+
+Selected payment method
+
+Cart items
+
+Gets user email from getAuth().currentUser.email
+
+Prepares order object like:
+
+{
+  "email": "user@example.com",
+  "items": [
+    {
+      "name": "iPhone 15",
+      "price": 80000,
+      "qty": 1
+    }
+  ],
+  "total": 80000,
+  "paymentMethod": "UPI",
+  "address": {
+    "name": "Yaswanth",
+    "mobile": "9999999999",
+    "pincode": "500001",
+    "city": "Hyderabad"
+  },
+  "date": "2025-08-03"
+}
+Adds it to Firestore under:
+
+Collection: orders  
+Document: user’s email  
+Field: history: []
+✅ On Success:
+
+Clear cart in localStorage
+
+Redirect to success.html
+
+💡 Developer Tips:
+Validate all address fields before placing order
+
+Use a confirm("Are you sure you want to place this order?") prompt
+
+Disable “Place Order” button during processing
+
+Save date in readable format using:
+
+new Date().toLocaleDateString("en-IN")
+
+💻 HTML Code
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,3 +369,4 @@
   </script>
 </body>
 </html>
+
